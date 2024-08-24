@@ -52,8 +52,9 @@ Sensitive attributes (e.g., gender, race, age)
 Example:
 age,gender,race,income,credit_score,loan_approved
 35,Male,Caucasian,50000,700,1
-28,Female,African American,45000,680,0
-...
+28,Female,African American,45000,680,0...
+
+
 Interpreting Results
 The tool provides bias scores for each sensitive feature based on its importance in the model's decision-making process. Higher scores indicate a stronger influence on the model's predictions, which may suggest potential bias.
 Contributing
