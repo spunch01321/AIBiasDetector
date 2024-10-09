@@ -1,3 +1,4 @@
+# Import necessary libraries
 import tkinter as tk
 from tkinter import filedialog, messagebox
 import pandas as pd
@@ -12,7 +13,12 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import seaborn as sns
 
 class AIBiasDetector:
+
+    # A class for detecting bias in AI models using a Random Forest Classifier.
+    
+
     def __init__(self):
+    # Initialize the AIBiasDetector with empty attributes.
         self.data = None
         self.target = None
         self.sensitive_features = []
@@ -21,11 +27,21 @@ class AIBiasDetector:
         self.feature_names = None
     
     def load_data(self, file_path):
+        
+        # Load data from a CSV file.
+        # param file_path: Path to the CSV file
+        # return: First few rows of the loaded data
+        
         self.data = pd.read_csv(file_path)
         print(f"Data loaded successfully. Shape: {self.data.shape}")
         return self.data.head()
     
     def set_target(self, target_column):
+        
+        #  Set the target variable for the model.
+        
+        #  param target_column: Name of the target column
+        
         if target_column in self.data.columns:
             self.target = self.data[target_column]
             self.data = self.data.drop(columns=[target_column])
@@ -34,12 +50,20 @@ class AIBiasDetector:
             raise ValueError(f"{target_column} not found in the dataset.")
     
     def set_sensitive_features(self, features):
+        
+        # Set the sensitive features to be used for bias detection.
+        
+        # param features: List of sensitive feature names
+        
         self.sensitive_features = [f for f in features if f in self.data.columns]
         if len(self.sensitive_features) != len(features):
             print(f"Warning: Some features were not found in the dataset.")
         print(f"Sensitive features set to: {self.sensitive_features}")
     
     def preprocess_data(self):
+        
+        # Preprocess the data by scaling numeric features and one-hot encoding categorical features.
+        
         numeric_features = self.data.select_dtypes(include=['int64', 'float64']).columns
         categorical_features = self.data.select_dtypes(include=['object']).columns
 
@@ -62,6 +86,11 @@ class AIBiasDetector:
         print("Data preprocessing completed.")
     
     def train_model(self, n_folds=5):
+        
+        # Train the Random Forest Classifier using k-fold cross-validation.
+        
+        # param n_folds: Number of folds for cross-validation
+        
         self.model = RandomForestClassifier(n_estimators=100, random_state=42)
         kf = KFold(n_splits=n_folds, shuffle=True, random_state=42)
         
@@ -80,6 +109,11 @@ class AIBiasDetector:
         print(classification_report(y_test, y_pred))
     
     def detect_bias(self):
+        
+        # Detect bias in the model based on the importance of sensitive features.
+        
+        # return: Dictionary of bias scores for each sensitive feature
+        
         if self.model is None or self.feature_names is None:
             raise ValueError("Model not trained or feature names not set. Run preprocess_data and train_model first.")
         
@@ -99,6 +133,13 @@ class AIBiasDetector:
         return bias_scores
     
     def visualize_bias(self, bias_scores, ax=None):
+        
+        # Visualize the bias scores using a bar plot.
+        
+        # param bias_scores: Dictionary of bias scores
+        # param ax: Matplotlib axis object (optional)
+        # return: Matplotlib axis object
+        
         if ax is None:
             fig, ax = plt.subplots(figsize=(10, 6))
         
@@ -111,7 +152,16 @@ class AIBiasDetector:
         return ax
 
 class AIBiasDetectorGUI:
+    
+    # A class for creating a graphical user interface for the AI Bias Detector.
+    
+
     def __init__(self, master):
+        
+        # Initialize the GUI.
+        
+        # param master: Tkinter root window
+        
         self.master = master
         self.master.title("AI Bias Detector")
         self.master.geometry("800x600")
@@ -122,6 +172,7 @@ class AIBiasDetectorGUI:
         self.create_widgets()
 
     def create_widgets(self):
+        # Create and arrange GUI widgets.
         self.file_button = tk.Button(self.master, text="Select Data File", command=self.load_file)
         self.file_button.pack(pady=10)
 
@@ -153,6 +204,7 @@ class AIBiasDetectorGUI:
         self.canvas.get_tk_widget().pack()
 
     def load_file(self):
+        # Open a file dialog to select and load a CSV file
         file_path = filedialog.askopenfilename(filetypes=[("CSV Files", "*.csv")])
         if file_path:
             try:
@@ -163,6 +215,7 @@ class AIBiasDetectorGUI:
                 messagebox.showerror("Error", f"Failed to load data: {str(e)}")
 
     def update_column_options(self):
+        # Update the GUI options for selecting target and sensitive features
         menu = self.target_menu["menu"]
         menu.delete(0, "end")
         for column in self.detector.data.columns:
@@ -173,6 +226,7 @@ class AIBiasDetectorGUI:
             self.sensitive_listbox.insert(tk.END, column)
 
     def run_detection(self):
+        # Run the bias detection process and display results.
         if self.detector.data is None:
             messagebox.showerror("Error", "Please load data first.")
             return
@@ -216,3 +270,6 @@ if __name__ == "__main__":
     root = tk.Tk()
     app = AIBiasDetectorGUI(root)
     root.mainloop()
+
+
+
