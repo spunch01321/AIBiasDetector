@@ -30,7 +30,7 @@ To use the AI Bias Detector from the command line:
 
 Ensure you're in the project directory.
 Run the following command:
-python ai_bias_detector.py path_to_your_data.csv
+python ai_bias_detector_with_gui.py path_to_your_data.csv
 
 Follow the prompts to select the target variable and sensitive features.
 
@@ -38,7 +38,7 @@ Graphical User Interface
 To use the GUI version of the AI Bias Detector:
 
 Run the following command:
-python ai_bias_detector_gui.py
+python ai_bias_detector_with_gui.py
 
 Use the interface to load your data, select the target variable and sensitive features, and run the bias detection.
 
