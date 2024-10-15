@@ -1,0 +1,26 @@
+applicant_id,age,gender,ethnicity,marital_status,dependents,education,employment_type,income,credit_score,debt_to_income_ratio,loan_amount,loan_term,loan_purpose,property_type,loan_approved
+1,35,Male,Caucasian,Married,2,Bachelor,Full-time,75000,720,0.28,250000,30,Home Purchase,Single Family,1
+2,42,Female,African American,Single,0,Master,Full-time,65000,680,0.32,200000,15,Refinance,Condo,1
+3,28,Female,Asian,Single,0,Bachelor,Part-time,55000,700,0.25,150000,30,Home Improvement,Townhouse,1
+4,50,Male,Hispanic,Divorced,1,PhD,Self-employed,90000,750,0.30,300000,30,Business,Multi Family,1
+5,39,Female,Caucasian,Married,3,Associate,Full-time,70000,690,0.35,220000,15,Debt Consolidation,Single Family,0
+6,45,Male,African American,Married,2,High School,Full-time,60000,670,0.40,180000,30,Home Improvement,Condo,0
+7,33,Female,Caucasian,Single,0,Master,Full-time,80000,730,0.29,270000,30,Home Purchase,Single Family,1
+8,55,Male,Asian,Married,1,Bachelor,Full-time,100000,760,0.27,350000,15,Business,Multi Family,1
+9,30,Female,Hispanic,Single,0,Associate,Part-time,50000,650,0.38,120000,30,Debt Consolidation,Condo,0
+10,48,Male,Caucasian,Married,2,Master,Full-time,85000,710,0.33,280000,30,Home Purchase,Single Family,1
+11,37,Female,African American,Single,1,Bachelor,Full-time,72000,700,0.31,230000,15,Home Improvement,Townhouse,1
+12,52,Male,Asian,Married,3,PhD,Self-employed,95000,740,0.28,320000,30,Business,Multi Family,1
+13,29,Female,Caucasian,Single,0,Bachelor,Full-time,58000,680,0.36,170000,30,Debt Consolidation,Condo,0
+14,43,Male,Hispanic,Married,2,High School,Full-time,68000,660,0.42,190000,15,Home Improvement,Single Family,0
+15,36,Female,African American,Divorced,1,Master,Full-time,77000,720,0.30,260000,30,Home Purchase,Townhouse,1
+16,47,Male,Caucasian,Married,2,Bachelor,Full-time,88000,730,0.32,300000,30,Business,Single Family,1
+17,31,Female,Asian,Single,0,Bachelor,Part-time,62000,690,0.34,200000,15,Home Improvement,Condo,1
+18,54,Male,Hispanic,Married,4,PhD,Full-time,105000,770,0.26,380000,30,Home Purchase,Multi Family,1
+19,40,Female,Caucasian,Married,2,Associate,Full-time,73000,700,0.37,240000,15,Debt Consolidation,Single Family,0
+20,34,Male,African American,Single,0,Bachelor,Full-time,66000,680,0.39,210000,30,Home Improvement,Townhouse,0
+21,44,Female,Hispanic,Divorced,1,Master,Self-employed,79000,710,0.33,270000,15,Business,Condo,1
+22,38,Male,Asian,Married,2,Bachelor,Full-time,82000,720,0.31,290000,30,Home Purchase,Single Family,1
+23,27,Female,Caucasian,Single,0,Associate,Part-time,53000,660,0.37,140000,15,Debt Consolidation,Condo,0
+24,51,Male,African American,Married,3,PhD,Full-time,92000,750,0.29,330000,30,Home Improvement,Multi Family,1
+25,32,Female,Hispanic,Single,0,Bachelor,Full-time,64000,690,0.35,200000,30,Home Purchase,Townhouse,1
